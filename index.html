@@ -1,0 +1,2561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Climate Pulse | Climate Change Awareness</title>
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        :root {
+            --bg: #f4f7f3;
+            --surface: #ffffff;
+            --surface2: #edf3ee;
+            --text: #142019;
+            --muted: #66736b;
+            --border: #dce5df;
+
+            --green: #18794e;
+            --green-light: #8adf72;
+
+            --yellow: #e6aa45;
+            --red: #df665f;
+            --blue: #5ea7df;
+
+            --shadow: 0 15px 40px rgba(20, 32, 25, 0.08);
+        }
+
+        body.dark {
+            --bg: #0d1512;
+            --surface: #14201b;
+            --surface2: #192821;
+            --text: #eff8f1;
+            --muted: #aab9b0;
+            --border: #2a3b32;
+
+            --green: #53d58d;
+            --green-light: #8adf72;
+
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            padding: 25px 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 14px 14px 14px 5px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--green),
+                    var(--green-light)
+                );
+
+            display: grid;
+            place-items: center;
+
+            font-size: 21px;
+            color: #082216;
+        }
+
+        .brand small {
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            border: 1px solid var(--border);
+
+            background: var(--surface);
+            color: var(--text);
+
+            padding: 10px 15px;
+
+            border-radius: 999px;
+
+            font-weight: 650;
+
+            transition: 0.2s ease;
+        }
+
+        nav button:hover {
+            transform: translateY(-2px);
+        }
+
+        nav button.active {
+            background: var(--green);
+            border-color: var(--green);
+            color: #071a11;
+        }
+
+        #themeToggle {
+            min-width: 44px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+
+            gap: 25px;
+
+            padding: 55px 0 40px;
+        }
+
+        .eyebrow {
+            color: var(--green);
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.16em;
+
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 82px);
+
+            line-height: 0.92;
+
+            letter-spacing: -0.07em;
+
+            margin: 15px 0 25px;
+
+            max-width: 850px;
+        }
+
+        .hero p {
+            color: var(--muted);
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            max-width: 720px;
+        }
+
+        .hero-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    var(--surface2)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 25px;
+
+            min-height: 260px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            box-shadow: var(--shadow);
+        }
+
+        .big-number {
+            font-size: 62px;
+
+            font-weight: 850;
+
+            letter-spacing: -0.07em;
+
+            margin: 15px 0 5px;
+        }
+
+        .small {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            padding: 35px 0;
+        }
+
+        .section-title {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            gap: 15px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+
+            font-size: 28px;
+
+            letter-spacing: -0.04em;
+        }
+
+        .section-title p {
+            margin: 0;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 21px;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        /* =========================
+           KPI DASHBOARD
+        ========================= */
+
+        .kpis {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .kpi {
+            padding: 18px;
+
+            border-radius: 18px;
+
+            background: var(--surface2);
+
+            border: 1px solid var(--border);
+        }
+
+        .kpi strong {
+            display: block;
+
+            font-size: 30px;
+
+            margin: 7px 0;
+
+            letter-spacing: -0.05em;
+        }
+
+        .trend {
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 650;
+        }
+
+
+        /* =========================
+           DASHBOARD GRID
+        ========================= */
+
+        .dashboard-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr;
+
+            gap: 16px;
+
+            margin-top: 16px;
+        }
+
+
+        /* =========================
+           CHART
+        ========================= */
+
+        .chart-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .chart-tabs {
+            display: flex;
+
+            gap: 7px;
+        }
+
+        .chart-tabs button {
+            border: 0;
+
+            background: var(--surface2);
+
+            color: var(--muted);
+
+            padding: 8px 12px;
+
+            border-radius: 999px;
+        }
+
+        .chart-tabs button.active {
+            background: var(--green);
+
+            color: #071a11;
+
+            font-weight: 750;
+        }
+
+        .chart {
+            width: 100%;
+
+            height: 300px;
+
+            margin-top: 15px;
+        }
+
+        .chart text {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           SCENARIO SLIDERS
+        ========================= */
+
+        .controls {
+            display: grid;
+
+            gap: 14px;
+
+            margin-top: 20px;
+        }
+
+        .control {
+            background: var(--surface2);
+
+            padding: 15px;
+
+            border-radius: 16px;
+        }
+
+        .control label {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+        .control output {
+            color: var(--green);
+        }
+
+        .control input {
+            width: 100%;
+
+            accent-color: var(--green);
+        }
+
+        .scenario-result {
+            margin-top: 18px;
+
+            padding: 16px;
+
+            background: var(--surface2);
+
+            border-radius: 16px;
+        }
+
+        .scenario-result strong {
+            font-size: 28px;
+        }
+
+        .meter {
+            height: 9px;
+
+            background: var(--border);
+
+            border-radius: 999px;
+
+            overflow: hidden;
+
+            margin-top: 10px;
+        }
+
+        .meter i {
+            display: block;
+
+            height: 100%;
+
+            width: 60%;
+
+            background: var(--green);
+
+            border-radius: 999px;
+
+            transition: width 0.2s ease;
+        }
+
+
+        /* =========================
+           IMPACT INDICATORS
+        ========================= */
+
+        .impact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .impact {
+            padding: 16px;
+
+            background: var(--surface2);
+
+            border-radius: 16px;
+        }
+
+        .impact-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+        }
+
+        .impact-bar {
+            height: 8px;
+
+            background: var(--border);
+
+            border-radius: 99px;
+
+            overflow: hidden;
+        }
+
+        .impact-bar span {
+            display: block;
+
+            height: 100%;
+
+            border-radius: 99px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--yellow),
+                    var(--red)
+                );
+        }
+
+
+        /* =========================
+           INFORMATION CARDS
+        ========================= */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+        }
+
+        .info-card {
+            padding: 20px;
+
+            background: var(--surface2);
+
+            border-radius: 18px;
+
+            border: 1px solid var(--border);
+        }
+
+        .info-card h3 {
+            margin: 10px 0 8px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           DRIVERS
+        ========================= */
+
+        .driver-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .driver-card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow);
+        }
+
+        .driver-image {
+            width: 100%;
+
+            height: 155px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .driver-content {
+            padding: 18px;
+        }
+
+        .driver-content h3 {
+            margin: 8px 0;
+        }
+
+        .driver-content p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .driver-more {
+            margin-top: 14px;
+
+            padding-top: 13px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .driver-more p {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           SOLUTIONS
+        ========================= */
+
+        .solution-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .solution {
+            padding: 21px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    var(--surface2)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+        }
+
+        .solution-number {
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 12px;
+
+            background: var(--green);
+
+            color: #071a11;
+
+            display: grid;
+
+            place-items: center;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .solution h3 {
+            margin: 0 0 8px;
+        }
+
+        .solution p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           ACTION SECTION
+        ========================= */
+
+        .action-box {
+            margin-top: 20px;
+
+            padding: 28px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green),
+                    var(--green-light)
+                );
+
+            color: #071a11;
+        }
+
+        .action-box h2 {
+            margin-top: 0;
+
+            font-size: 30px;
+        }
+
+        .action-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .action-item {
+            padding: 15px;
+
+            background: rgba(255,255,255,0.35);
+
+            border-radius: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 45px 0;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav button {
+                flex: 1;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kpis {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .driver-grid,
+            .solution-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .action-list {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+            }
+
+            .hero {
+                padding-top: 30px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .kpis {
+                grid-template-columns: 1fr;
+            }
+
+            .driver-grid,
+            .solution-grid,
+            .info-grid,
+            .impact-grid,
+            .action-list {
+                grid-template-columns: 1fr;
+            }
+
+            .chart {
+                height: 240px;
+            }
+
+            .chart-tabs {
+                width: 100%;
+
+                overflow-x: auto;
+            }
+
+            .chart-tabs button {
+                white-space: nowrap;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="brand">
+
+            <div class="logo">
+                🌱
+            </div>
+
+            <div>
+                CLIMATE PULSE
+                <br>
+
+                <small>
+                    Climate change awareness dashboard
+                </small>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="active"
+                data-section="overview">
+                Overview
+            </button>
+
+            <button
+                data-section="drivers">
+                Climate Drivers
+            </button>
+
+            <button
+                data-section="solutions">
+                Solutions
+            </button>
+
+            <button
+                id="themeToggle"
+                type="button">
+                🌙
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="eyebrow">
+                Understand • Act • Protect
+            </div>
+
+            <h1>
+                Climate change,
+                made visible.
+            </h1>
+
+            <p>
+                Explore the causes, impacts and possible solutions
+                to climate change through an interactive dashboard.
+                Adjust different scenarios and see how climate
+                action can change the overall picture.
+            </p>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div>
+
+                <div class="eyebrow">
+                    Climate pressure
+                </div>
+
+                <div
+                    class="big-number"
+                    id="climateSignal">
+                    1.5×
+                </div>
+
+                <div class="small">
+                    Illustrative climate-pressure index
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="meter">
+
+                    <i
+                        id="climateMeter"
+                        style="width:65%">
+                    </i>
+
+                </div>
+
+                <p class="small">
+                    Adjust the scenario sliders below
+                    to see how different actions affect
+                    the illustrative dashboard signal.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CLIMATE OVERVIEW
+    ========================== -->
+
+    <section
+        id="overview"
+        class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Climate overview
+                </h2>
+
+                <p>
+                    Key indicators at a glance
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="kpis">
+
+            <div class="kpi">
+
+                <span class="small">
+                    Global warming
+                </span>
+
+                <strong>
+                    ↑
+                </strong>
+
+                <span class="trend">
+                    Long-term upward trend
+                </span>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <span class="small">
+                    Greenhouse gases
+                </span>
+
+                <strong>
+                    High
+                </strong>
+
+                <span class="trend">
+                    Human activity is the main driver
+                </span>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <span class="small">
+                    Climate risk
+                </span>
+
+                <strong>
+                    Rising
+                </strong>
+
+                <span class="trend">
+                    Multiple impacts interact
+                </span>
+
+            </div>
+
+
+            <div class="kpi">
+
+                <span class="small">
+                    Action
+                </span>
+
+                <strong>
+                    Now
+                </strong>
+
+                <span class="trend">
+                    Every sector can contribute
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- WARMING CHART -->
+
+            <div class="card">
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <h2>
+                            Warming trajectory
+                        </h2>
+
+                        <span class="small">
+                            Illustrative temperature anomaly
+                            pathway, 1990–2050
+                        </span>
+
+                    </div>
+
+
+                    <div class="chart-tabs">
+
+                        <button
+                            class="active"
+                            data-series="current">
+                            Current
+                        </button>
+
+                        <button
+                            data-series="low">
+                            Lower emissions
+                        </button>
+
+                        <button
+                            data-series="high">
+                            Higher emissions
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <svg
+                    id="warmingChart"
+                    class="chart"
+                    viewBox="0 0 760 300">
+
+                </svg>
+
+            </div>
+
+
+
+            <!-- SCENARIO -->
+
+            <div class="card">
+
+                <h2>
+                    Scenario builder
+                </h2>
+
+                <p class="small">
+                    Increase climate action in each area
+                    and watch the illustrative signal change.
+                </p>
+
+
+                <div class="controls">
+
+
+                    <div class="control">
+
+                        <label>
+
+                            <span>
+                                Clean energy
+                            </span>
+
+                            <output id="cleanValue">
+                                55%
+                            </output>
+
+                        </label>
+
+                        <input
+                            id="cleanEnergy"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="55">
+
+                    </div>
+
+
+                    <div class="control">
+
+                        <label>
+
+                            <span>
+                                Efficiency
+                            </span>
+
+                            <output id="efficiencyValue">
+                                50%
+                            </output>
+
+                        </label>
+
+                        <input
+                            id="efficiency"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="50">
+
+                    </div>
+
+
+                    <div class="control">
+
+                        <label>
+
+                            <span>
+                                Transport shift
+                            </span>
+
+                            <output id="transportValue">
+                                40%
+                            </output>
+
+                        </label>
+
+                        <input
+                            id="transport"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="40">
+
+                    </div>
+
+
+                    <div class="control">
+
+                        <label>
+
+                            <span>
+                                Nature protection
+                            </span>
+
+                            <output id="natureValue">
+                                60%
+                            </output>
+
+                        </label>
+
+                        <input
+                            id="nature"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="60">
+
+                    </div>
+
+                </div>
+
+
+                <div class="scenario-result">
+
+                    <span class="small">
+                        Illustrative pressure index
+                    </span>
+
+                    <br>
+
+                    <strong id="scenarioScore">
+                        1.5×
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CLIMATE IMPACTS -->
+
+        <div class="card" style="margin-top:16px">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Climate impact indicators
+                    </h2>
+
+                    <p>
+                        Systems experiencing increasing climate pressure
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="impact-grid">
+
+
+                <div class="impact">
+
+                    <div class="impact-top">
+
+                        <b>
+                            Extreme heat
+                        </b>
+
+                        <span>
+                            High
+                        </span>
+
+                    </div>
+
+                    <div class="impact-bar">
+
+                        <span style="width:88%">
+                        </span>
+
+                    </div>
+
+                    <p class="small">
+                        More frequent and intense heat events.
+                    </p>
+
+                </div>
+
+
+                <div class="impact">
+
+                    <div class="impact-top">
+
+                        <b>
+                            Water
+                        </b>
+
+                        <span>
+                            High
+                        </span>
+
+                    </div>
+
+                    <div class="impact-bar">
+
+                        <span style="width:76%">
+                        </span>
+
+                    </div>
+
+                    <p class="small">
+                        Droughts, floods and changing rainfall.
+                    </p>
+
+                </div>
+
+
+                <div class="impact">
+
+                    <div class="impact-top">
+
+                        <b>
+                            Food
+                        </b>
+
+                        <span>
+                            Rising
+                        </span>
+
+                    </div>
+
+                    <div class="impact-bar">
+
+                        <span style="width:69%">
+                        </span>
+
+                    </div>
+
+                    <p class="small">
+                        Pressure on crops, livestock and fisheries.
+                    </p>
+
+                </div>
+
+
+                <div class="impact">
+
+                    <div class="impact-top">
+
+                        <b>
+                            Ecosystems
+                        </b>
+
+                        <span>
+                            Rising
+                        </span>
+
+                    </div>
+
+                    <div class="impact-bar">
+
+                        <span style="width:63%">
+                        </span>
+
+                    </div>
+
+                    <p class="small">
+                        Habitat stress and biodiversity loss.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CLIMATE INFORMATION -->
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Understanding climate change
+                </h2>
+
+                <p>
+                    The basic structure of the climate problem
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="eyebrow">
+                    01 • Atmosphere
+                </div>
+
+                <h3>
+                    Greenhouse effect
+                </h3>
+
+                <p>
+                    Greenhouse gases such as carbon dioxide
+                    and methane absorb outgoing heat and
+                    influence Earth's energy balance.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="eyebrow">
+                    02 • Oceans
+                </div>
+
+                <h3>
+                    Heat & acidity
+                </h3>
+
+                <p>
+                    Oceans absorb large amounts of excess heat
+                    and carbon dioxide, affecting sea levels
+                    and marine ecosystems.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="eyebrow">
+                    03 • People
+                </div>
+
+                <h3>
+                    Health & livelihoods
+                </h3>
+
+                <p>
+                    Climate hazards can affect health,
+                    infrastructure, agriculture, water
+                    security and economic activity.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CLIMATE DRIVERS
+    ========================== -->
+
+    <section
+        id="drivers"
+        class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Climate drivers
+                </h2>
+
+                <p>
+                    Major sources of greenhouse gas emissions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="driver-grid">
+
+
+            <!-- ENERGY -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
+                    alt="Electricity transmission towers">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        01 • Energy
+                    </div>
+
+                    <h3>
+                        Power & heat
+                    </h3>
+
+                    <p>
+                        Burning coal, oil and gas for electricity
+                        and heat releases greenhouse gases.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Cleaner electricity and lower energy
+                            demand can reduce emissions across
+                            many sectors.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- INDUSTRY -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80"
+                    alt="Industrial production facility">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        02 • Industry
+                    </div>
+
+                    <h3>
+                        Materials & production
+                    </h3>
+
+                    <p>
+                        Steel, cement, chemicals and manufacturing
+                        require large amounts of energy.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Efficient processes, cleaner electricity,
+                            material reuse and lower-carbon technologies
+                            can reduce industrial emissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- TRANSPORT -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+                    alt="Cars on a road">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        03 • Transport
+                    </div>
+
+                    <h3>
+                        Movement of people
+                    </h3>
+
+                    <p>
+                        Cars, trucks, ships and aircraft depend
+                        heavily on fossil fuels.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Public transport, walking, cycling,
+                            efficient vehicles and electrification
+                            can reduce emissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- LAND -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80"
+                    alt="Green forest">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        04 • Land & food
+                    </div>
+
+                    <h3>
+                        Agriculture & land use
+                    </h3>
+
+                    <p>
+                        Deforestation, livestock, fertilizers
+                        and land-use change affect climate.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Protecting forests, improving soil
+                            management and reducing food waste
+                            can reduce environmental pressure.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- BUILDINGS -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80"
+                    alt="Modern building">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        05 • Buildings
+                    </div>
+
+                    <h3>
+                        Homes & workplaces
+                    </h3>
+
+                    <p>
+                        Heating, cooling, lighting and appliances
+                        create significant energy demand.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Insulation, efficient equipment,
+                            smart design and clean electricity
+                            can reduce energy demand.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- WASTE -->
+
+            <article class="driver-card">
+
+                <img
+                    class="driver-image"
+                    src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=900&q=80"
+                    alt="Waste and recycling containers">
+
+                <div class="driver-content">
+
+                    <div class="eyebrow">
+                        06 • Waste
+                    </div>
+
+                    <h3>
+                        Consumption & waste
+                    </h3>
+
+                    <p>
+                        Producing, transporting and disposing
+                        of products uses resources and energy.
+                    </p>
+
+                    <div class="driver-more">
+
+                        <b>
+                            Why it matters
+                        </b>
+
+                        <p>
+                            Reducing consumption, repairing,
+                            reusing and recycling can reduce
+                            resource and energy pressure.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SOLUTIONS
+    ========================== -->
+
+    <section
+        id="solutions"
+        class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Solutions & action
+                </h2>
+
+                <p>
+                    Practical areas where climate action can happen
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="solution-grid">
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    01
+                </div>
+
+                <h3>
+                    Clean energy
+                </h3>
+
+                <p>
+                    Expand renewable and other low-carbon
+                    electricity while improving energy efficiency
+                    and modernizing power systems.
+                </p>
+
+            </div>
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    02
+                </div>
+
+                <h3>
+                    Better transport
+                </h3>
+
+                <p>
+                    Improve public transport, walking and cycling
+                    while supporting efficient and electric vehicles.
+                </p>
+
+            </div>
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    03
+                </div>
+
+                <h3>
+                    Protect nature
+                </h3>
+
+                <p>
+                    Protect forests, wetlands, soils and biodiversity
+                    while restoring damaged ecosystems.
+                </p>
+
+            </div>
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    04
+                </div>
+
+                <h3>
+                    Efficient buildings
+                </h3>
+
+                <p>
+                    Improve insulation, cooling, heating, lighting
+                    and building design to reduce energy demand.
+                </p>
+
+            </div>
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    05
+                </div>
+
+                <h3>
+                    Cleaner industry
+                </h3>
+
+                <p>
+                    Improve material efficiency, reuse resources
+                    and develop lower-carbon industrial processes.
+                </p>
+
+            </div>
+
+
+            <div class="solution">
+
+                <div class="solution-number">
+                    06
+                </div>
+
+                <h3>
+                    Climate resilience
+                </h3>
+
+                <p>
+                    Prepare communities for heat, flooding,
+                    water stress and other climate-related hazards.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ACTION BOX -->
+
+        <div class="action-box">
+
+            <h2>
+                What can we do?
+            </h2>
+
+            <p>
+                Climate action happens at many levels.
+                Individual choices are useful, while businesses,
+                cities and governments can create larger
+                system-wide changes.
+            </p>
+
+
+            <div class="action-list">
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Use energy wisely
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Improve efficiency and reduce unnecessary energy use.
+                    </small>
+
+                </div>
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Choose cleaner mobility
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Walk, cycle, use public transport or choose efficient vehicles.
+                    </small>
+
+                </div>
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Protect nature
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Protect forests, ecosystems and biodiversity.
+                    </small>
+
+                </div>
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Reduce waste
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Repair, reuse and recycle products and materials.
+                    </small>
+
+                </div>
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Support climate solutions
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Encourage responsible businesses and climate-friendly policies.
+                    </small>
+
+                </div>
+
+
+                <div class="action-item">
+
+                    <strong>
+                        Prepare communities
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Strengthen resilience to heat, floods and water stress.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        Climate Pulse • Climate Change Awareness
+
+        <br><br>
+
+        Educational website prototype.
+        Interactive values are illustrative and are not intended
+        as scientific measurements.
+
+    </footer>
+
+</div>
+
+
+
+<script>
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    const navButtons =
+        document.querySelectorAll("[data-section]");
+
+    navButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const sectionId =
+                button.dataset.section;
+
+            const target =
+                document.getElementById(sectionId);
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+            navButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+        });
+
+    });
+
+
+
+    /* =========================================
+       DARK MODE
+    ========================================= */
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        const darkMode =
+            document.body.classList.contains("dark");
+
+        themeToggle.textContent =
+            darkMode ? "☀️" : "🌙";
+
+    });
+
+
+
+    /* =========================================
+       WARMING TRAJECTORY CHART
+    ========================================= */
+
+    const chart =
+        document.getElementById("warmingChart");
+
+
+    const chartData = {
+
+        low: [
+            0.18,
+            0.23,
+            0.30,
+            0.36,
+            0.41,
+            0.45,
+            0.48,
+            0.50
+        ],
+
+        current: [
+            0.18,
+            0.27,
+            0.37,
+            0.49,
+            0.62,
+            0.76,
+            0.91,
+            1.06
+        ],
+
+        high: [
+            0.18,
+            0.30,
+            0.43,
+            0.61,
+            0.82,
+            1.05,
+            1.31,
+            1.58
+        ]
+
+    };
+
+
+    const years = [
+        1990,
+        2000,
+        2010,
+        2020,
+        2030,
+        2040,
+        2050,
+        2060
+    ];
+
+
+    function createPath(values) {
+
+        return values
+            .map((value, index) => {
+
+                const x =
+                    55 + index * 94;
+
+                const y =
+                    245 - value * 120;
+
+                return (
+                    index === 0
+                        ? `M ${x} ${y}`
+                        : `L ${x} ${y}`
+                );
+
+            })
+            .join(" ");
+
+    }
+
+
+    function drawChart(selected) {
+
+        chart.innerHTML = "";
+
+
+        /* Grid lines */
+
+        [55, 115, 175, 235].forEach(y => {
+
+            const line =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "line"
+                );
+
+            line.setAttribute("x1", "55");
+            line.setAttribute("x2", "720");
+
+            line.setAttribute("y1", y);
+            line.setAttribute("y2", y);
+
+            line.setAttribute(
+                "stroke",
+                "currentColor"
+            );
+
+            line.setAttribute(
+                "opacity",
+                "0.12"
+            );
+
+            chart.appendChild(line);
+
+        });
+
+
+        const colors = {
+
+            low: "var(--green)",
+
+            current: "var(--yellow)",
+
+            high: "var(--red)"
+
+        };
+
+
+        ["low", "current", "high"]
+            .forEach(key => {
+
+                const path =
+                    document.createElementNS(
+                        "http://www.w3.org/2000/svg",
+                        "path"
+                    );
+
+                path.setAttribute(
+                    "d",
+                    createPath(chartData[key])
+                );
+
+                path.setAttribute(
+                    "fill",
+                    "none"
+                );
+
+                path.setAttribute(
+                    "stroke",
+                    colors[key]
+                );
+
+                path.setAttribute(
+                    "stroke-width",
+                    key === selected ? "5" : "2"
+                );
+
+                path.setAttribute(
+                    "opacity",
+                    key === selected ? "1" : "0.3"
+                );
+
+                path.setAttribute(
+                    "stroke-linecap",
+                    "round"
+                );
+
+                path.setAttribute(
+                    "stroke-linejoin",
+                    "round"
+                );
+
+                chart.appendChild(path);
+
+            });
+
+
+        /* Years */
+
+        years.forEach((year, index) => {
+
+            const text =
+                document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "text"
+                );
+
+            text.setAttribute(
+                "x",
+                55 + index * 94
+            );
+
+            text.setAttribute(
+                "y",
+                280
+            );
+
+            text.setAttribute(
+                "font-size",
+                "11"
+            );
+
+            text.setAttribute(
+                "fill",
+                "currentColor"
+            );
+
+            text.setAttribute(
+                "opacity",
+                "0.55"
+            );
+
+            text.textContent = year;
+
+            chart.appendChild(text);
+
+        });
+
+    }
+
+
+    drawChart("current");
+
+
+    document
+        .querySelectorAll("[data-series]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll("[data-series]")
+                        .forEach(btn => {
+                            btn.classList.remove("active");
+                        });
+
+                    button.classList.add("active");
+
+                    drawChart(
+                        button.dataset.series
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    /* =========================================
+       SCENARIO SLIDERS
+    ========================================= */
+
+    const cleanEnergy =
+        document.getElementById("cleanEnergy");
+
+    const efficiency =
+        document.getElementById("efficiency");
+
+    const transport =
+        document.getElementById("transport");
+
+    const nature =
+        document.getElementById("nature");
+
+
+    const cleanValue =
+        document.getElementById("cleanValue");
+
+    const efficiencyValue =
+        document.getElementById("efficiencyValue");
+
+    const transportValue =
+        document.getElementById("transportValue");
+
+    const natureValue =
+        document.getElementById("natureValue");
+
+
+    const scenarioScore =
+        document.getElementById("scenarioScore");
+
+    const climateSignal =
+        document.getElementById("climateSignal");
+
+    const climateMeter =
+        document.getElementById("climateMeter");
+
+
+    function updateScenario() {
+
+        const clean =
+            Number(cleanEnergy.value);
+
+        const efficiencyAmount =
+            Number(efficiency.value);
+
+        const transportAmount =
+            Number(transport.value);
+
+        const natureAmount =
+            Number(nature.value);
+
+
+        cleanValue.textContent =
+            clean + "%";
+
+        efficiencyValue.textContent =
+            efficiencyAmount + "%";
+
+        transportValue.textContent =
+            transportAmount + "%";
+
+        natureValue.textContent =
+            natureAmount + "%";
+
+
+        /*
+            Illustrative weights.
+
+            These values are for demonstrating
+            interactive dashboard behavior.
+        */
+
+        const score =
+
+            clean * 0.35 +
+
+            efficiencyAmount * 0.25 +
+
+            transportAmount * 0.20 +
+
+            natureAmount * 0.20;
+
+
+        /*
+            Convert action score into
+            an illustrative pressure index.
+        */
+
+        const pressure =
+
+            2.35 -
+            (score / 100) * 1.35;
+
+
+        const rounded =
+            pressure.toFixed(1);
+
+
+        scenarioScore.textContent =
+            rounded + "×";
+
+
+        climateSignal.textContent =
+            rounded + "×";
+
+
+        const meterWidth =
+            35 + (score / 100) * 55;
+
+
+        climateMeter.style.width =
+            meterWidth + "%";
+
+    }
+
+
+    cleanEnergy.addEventListener(
+        "input",
+        updateScenario
+    );
+
+    efficiency.addEventListener(
+        "input",
+        updateScenario
+    );
+
+    transport.addEventListener(
+        "input",
+        updateScenario
+    );
+
+    nature.addEventListener(
+        "input",
+        updateScenario
+    );
+
+
+    updateScenario();
+
+</script>
+
+</body>
+</html>
